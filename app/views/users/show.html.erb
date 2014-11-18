@@ -1,0 +1,13 @@
+<%= current_user.email  %>
+
+
+<%= link_to "Make a new List!", new_list_path %>
+
+
+<h1>Current To-Do Lists</h1>
+<% current_user.lists.each do |l|  %>
+	<%= l.name %> <br>
+	<% l.items do |i| %>
+		<%= i.name %> <br>
+	<% end %>
+<% end %>

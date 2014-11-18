@@ -10,7 +10,7 @@
 
 <div id="user_header">
     <% if current_user %>
-      Logged in as <%= current_user.email %>.
+      <%= link_to "My Lists", user_path(current_user) %>|
       <%= link_to "Log Out", logout_path %>
     <% else %>
       <%= link_to "Sign Up", signup_path %> or
