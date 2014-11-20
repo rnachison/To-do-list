@@ -1,8 +1,8 @@
 FactoryGirl.define do
 
-	factory :a_list, class: List do
+	factory :list, class: List do
 
-		name ""
+		name "A name"
 
 	end
 
