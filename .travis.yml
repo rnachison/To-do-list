@@ -1,6 +1,14 @@
 language: ruby
 rvm:
-  - 2.1.2p95
-
+- 2.1.2p95
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+- psql -c 'create database travis_ci_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: s7yW9FjaSh738FDm1wP0RMicxRv3+1r7kE+yGxmW4VFjeY/lpuDXQLhWcW67RD08yOXdhRzlGjqOKTSG9zpExnl0qLn/aaz0xfXytDiqqenYjiiO6Q6nD8H36Ve5M2IIkEIC5o8Pkp+Gh0ksqcAzt2bxIvuhHAQ6GJRcFd/ezKI=
+  app: secret-sands-2981
+  run:
+    #remember that migrations you run locally must run in the release environment
+    - "rake db:migrate"
+    - restart
