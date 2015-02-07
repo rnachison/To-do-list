@@ -1,15 +1,12 @@
-<h1>Names of Lists: </h1>
+<h1>Here are your lists! </h1>
 
 <% @lists.each do |l| %>
 
-    <div><%= l.name %> -- <%= l.user_id %></div>
+    <div><%= l.name %> -- <%= l.created_at.strftime("%B #{l.created_at.day.ordinalize}, %Y") %></div>
 
 <% end %>
 
-<%= @user.id %>
-<% @user.id =  %>
-
-<h2>Name a New List</h2>
+<h2>Make another one!</h2>
 
 <%= form_for @list do |f| %>
 

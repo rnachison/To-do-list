@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
   post 'lists/' => 'lists#create', as: :lists_create
 
-  post 'users/:id' => 'users#create_list', as: :create_list
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
