@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "adding a new task" do 
 
 	it "can add and reorder a task" do
+		user = FactoryGirl.build_stubbed(:user)
 		# always use visit to land on a page
 		# here we use the alias of home_page to start
 		visit home_path

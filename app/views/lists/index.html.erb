@@ -1,22 +1,27 @@
-<h1>Names of Lists:</h1>
+<h1>Names of Lists: </h1>
 
 <% @lists.each do |l| %>
 
-    <div class='l-name'><%= l.name %></div>
+    <div><%= l.name %> -- <%= l.user_id %></div>
 
 <% end %>
+
+<%= @user.id %>
+<% @user.id =  %>
 
 <h2>Name a New List</h2>
 
 <%= form_for @list do |f| %>
 
+
+
     <div class="field">
       <%= f.label :name %><br>
       <%= f.text_field :name %>
+      <%= f.hidden_field :user_id, :value => @user.id %>
     </div>
 
     <div class="actions">
       <%= f.submit %>
     </div>
-
 <% end %>

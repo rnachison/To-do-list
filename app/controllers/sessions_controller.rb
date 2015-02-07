@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+
+    skip_before_filter :authorize
+
+    
     def new
     end
 
@@ -6,7 +10,7 @@ class SessionsController < ApplicationController
         user = User.where(email: params[:email]).first
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect_to root_url
+            redirect_to home_path
         else
             flash.now.alert = "Email or password is invalid"
             render "new"
@@ -15,6 +19,6 @@ class SessionsController < ApplicationController
 
     def destroy
         reset_session
-        redirect_to root_path
+        redirect_to home_path
     end
 end
